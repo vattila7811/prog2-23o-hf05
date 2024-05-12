@@ -78,7 +78,7 @@ def band_release_years(data: dict[str, dict]) -> dict[str, list[int]]:
 
 def productive_bands(data: dict[str, dict]):
     releases = band_release_years(data)
-    release_counts = sorted([(band, years) for band, years in releases.items() if len(years) >=5 ])
+    release_counts = sorted([(band, years) for band, years in releases.items() if len(years) >=5 ], key=lambda x: x[0].casefold())
     
     
     plt.figure(figsize=(10,6))
